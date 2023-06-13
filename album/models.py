@@ -6,7 +6,7 @@ class Tag(models.Model):
     name = models.CharField(max_length=32, primary_key=True)
 
     def __str__(self) -> str:
-        return super().__str__()
+        return self.name
 
 
 class Photo(models.Model):
