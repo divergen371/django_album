@@ -1,9 +1,13 @@
 # Third Party Library
-from django.http.response import HttpResponse
-from django.shortcuts import render
+from django.views.generic import ListView
+
+# Local Library
+from .models import Photo
 
 # Create your views here.
 
 
-def index(request):
-    return HttpResponse("<h1>Hello World!</h1>")
+class PhotoListView(ListView):
+    model = Photo
+    template_engine = "album/photo_list.html"
+    context_object_name = "photos"
