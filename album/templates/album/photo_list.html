@@ -1,4 +1,20 @@
-{% extends "album/base.html" %} {% block content %}
+{% extends "album/base.html" %} 
+{% block header %}
+  <section class="py-5 text-center container">
+    <div class="row py-lg-5">
+      <h1 class="fw-light">Django Album</h1>
+      <p class="lead text-muted">思い出フォトグラフ</p>
+      <p class="pt-4 fs-5">
+        {% for tag in tags %}
+          <span class="badge rounded-pill bg-light">
+            <a href="{% url 'tag-photo-list' tag.name %}" style="text-decoration: none;" class="text-dark">{{tag}}</a>
+          </span>
+        {% endfor %}
+      </p>
+    </div>
+  </section>
+{% endblock header %}
+{% block content %}
 <div class="container">
   <div class="row">
     {% for photo in photos %}
