@@ -1,5 +1,5 @@
 # Third Party Library
-from django.shortcuts import get_object_or_404
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView
 
@@ -48,3 +48,17 @@ class PhotoCreateView(CreateView):
     template_name = "album/photo_create.html"
     fields = "__all__"
     success_url = reverse_lazy("photo-list")
+
+    def form_valid(self, form):
+        photo = form.save()
+        new_tag = self.request.POST.get("new_tag")
+
+        if new_tag:
+            print("追加前:", photo.tags.all())
+            for tag in new_tag.split():
+                is_exists = Tag.objects.filter(name=tag)
+                if not is_exists:
+                    Tag.objects.create(name=tag)
+                photo.tags.add(tag)
+            print("追加後:", photo.tags.all())
+        return redirect("photo0list")
