@@ -47,4 +47,4 @@ class PhotoCreateView(CreateView):
     model = Photo
     template_name = "album/photo_create.html"
     fields = "__all__"
-    success_url = reverse_lazy("photo_list")
+    success_url = reverse_lazy("photo-list")
