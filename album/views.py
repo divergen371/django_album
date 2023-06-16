@@ -61,4 +61,4 @@ class PhotoCreateView(CreateView):
                     Tag.objects.create(name=tag)
                 photo.tags.add(tag)
             print("追加後:", photo.tags.all())
-        return redirect("photo0list")
+        return redirect("photo-list")
