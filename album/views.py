@@ -37,5 +37,5 @@ class TagPhotoListView(ListView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
-        context["tag"] = self.kwargs("tag")
+        context["tag"] = self.kwargs["tag"]
         return context
