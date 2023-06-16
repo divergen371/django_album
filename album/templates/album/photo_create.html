@@ -22,6 +22,11 @@
               <label class="form-label">タグ</label>
               {{form.tags | add_class:"form-control"}}
             </div>
+            <div class="mb-3">
+                <label class="form-label">登録したいタグがない？</label>
+                <input type="text" class="form-control" name="new_tag" id="id_new_tag" placeholder="タグを作成する">
+                <small class="form-text text-muted">複数登録は半角スペースで区切ってください</small>
+            </div>
             <div class="d-grid gap-2">
               <button type="submit" class="btn btn-primary">登録</button>
             </div>
